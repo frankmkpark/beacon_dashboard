@@ -15,7 +15,7 @@ st.title(f'Github Repositories Analysis: Myungkeun Park - {dataset_version}')
 
 if all(col in df.columns for col in required_columns):
     st.header('Statistical Analysis (values in 2 dp if decimal)')
-    columns_to_analyze = required_columns[:-3] if dataset_version == "Version 1" else required_columns[:-4]
+    columns_to_analyze = required_columns[:5]
     for col in columns_to_analyze:
         st.subheader(f'Statistics for {col}')
         if dataset_version == "Version 1":
