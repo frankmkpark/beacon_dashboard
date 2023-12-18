@@ -1,6 +1,8 @@
 import streamlit as st
 import functions as fn
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 dataset_version = st.sidebar.selectbox("Select Dataset Version", ["Version 1", "Version 2"])
 df = fn.load_data_ver1() if dataset_version == "Version 1" else fn.load_data_ver2()
 
@@ -32,7 +34,6 @@ if all(col in df.columns for col in required_columns):
     else:
         st.subheader('Language Distribution - Top 50')
         fn.plot_language_distribution_2(df, 'primary_language', top_n=50)
-    st.set_option('deprecation.showPyplotGlobalUse', False)
     st.pyplot()
 
     if dataset_version != "Version 1":

@@ -1,9 +1,15 @@
 # author: Myungkeun Park
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+import streamlit as st
+try:
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+except ImportError as e:
+    st.warning(f"{e}")
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def load_data_ver1():
     return pd.read_csv('./github_dataset.csv')
